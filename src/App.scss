@@ -1,0 +1,389 @@
+// bower:scss
+// endbower
+
+//@import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,900';
+
+
+//Variables
+$white:#FFF;
+$black:#000;
+
+$powder:#F2F2F2;
+$fog:#D9D9D9;
+$steel:#AAA;
+$charcoal:#262626;
+
+$blue:#5086A3;
+$rain:#A9C6D6;
+$berry:#3B5987;
+$pink:#FF2549;
+
+$green:#419345;
+$lite-green: #66BB6A;
+
+@mixin defaultAlignment {
+  margin:0 auto;
+  width:auto;
+  max-width:100%;
+}
+
+@mixin defaultText{
+	font-family:'Lato', Helvetica, Arial, sans-serif;
+	font-weight:800;
+	color:$white;
+	letter-spacing:1px;
+	text-transform:uppercase;
+}
+
+@mixin anagramText{
+	font-family:'Lato', Helvetica, Arial, sans-serif;
+	font-weight:900;
+	// letter-spacing:2.85px;
+	letter-spacing:1.5px;
+	font-size:72px;
+	text-transform:uppercase;
+	text-align:center;
+	cursor:text;
+	text-decoration:underline;
+}
+
+*,
+*:before,
+*:after { box-sizing: border-box; }
+
+
+body {
+  font-family:'Lato', Helvetica, Arial, sans-serif;
+  cursor:default;
+  background:$charcoal;
+}
+
+// === Typography === //
+h1, h2, h3, h4, h5, h6 {
+    font-weight:normal;
+    margin:0;
+}
+
+h1 {font-size: 60px;}
+h2 {font-size: 48px;}
+h3 {font-size: 32px;}
+h4 {font-size: 24px;}
+h5 {font-size: 18px;}
+h6 {font-size: 12px;}
+
+
+// === Utility === //
+.textCenter {text-align:center;}
+.padded{padding:16px;}
+.buffer{padding:32px;}
+.uppercase{text-transform:uppercase;}
+.link {text-decoration:none; font-weight:bolder;} 
+.container{max-width:1100px; margin:0 auto;}
+button:focus{outline:0;}
+a, ul, li {text-decoration:none; list-style-type:none; color:$white;}
+
+
+
+// === Main Content === //
+
+.main{
+// .mobile{display:none;}
+	max-width:100%;
+	height:auto;
+	padding:50px 0;
+
+	.header{
+		padding:30px 0;
+		h3 {
+			@include defaultText;
+		}
+	}
+}
+
+.main-content{
+	padding:40px 0;
+
+	.originalText, .wordInput input {
+		padding:0;
+	}
+	.originalText, .wordInput input, 
+	span.letters, span.usedLetters{
+		@include anagramText;
+		@include defaultAlignment;
+	}
+
+	.originalText, .usedLetters {		
+		color:$berry;
+	}
+
+	.wordInput input, .letters{
+		color:$rain;
+	}
+
+	.wordInput input {
+		width:100%;
+		max-width:100%;
+	}
+
+	.updatedText{
+		@include anagramText;
+		@include defaultAlignment;
+		color:lighten($pink, 8%);
+		width:100%;
+	}
+
+	input {
+		background:none;
+		outline:none;
+		border:none;
+		-webkit-appearance:none;
+		width:auto;
+		max-width:100%;
+	}
+}	
+
+// === Footer === //
+
+footer{
+  p{
+    color:$white;
+    font-weight:300;
+    font-size:12px;
+    letter-spacing:4.5px;
+  }
+}
+
+
+/* === Media Queries === */
+
+@media screen 
+and (min-width:400px)
+and (max-width:435px) {
+	//Code Here
+}
+
+@media screen
+and (min-width:400px)
+and (max-width:539px) {
+
+	.main {
+		.header	{	
+			padding:20px 0;
+			h3{font-size:28px;}
+		}
+	}
+	.main-content{
+		padding:30px 0;
+
+		.originalText, .wordInput input, 
+		span.letters, span.usedLetters, 
+		.updatedText {
+			font-size:48px;
+		}
+	}
+	footer p {
+		letter-spacing:1px;
+	}
+}
+
+/* iPhone 5 & 5s */
+/* Portrait Only Styles */
+@media only screen 
+  and (min-device-width:320px) 
+  and (max-device-width:568px)
+  and (-webkit-min-device-pixel-ratio:2)
+  and (orientation:portrait) {
+  	.main {
+		padding:80px 0 20px;
+		
+		.header	{	
+			padding:10px 0;
+			h3{font-size:24px;}
+		}
+	}
+	.main-content{
+		padding:30px 0 ;
+
+		.originalText, .wordInput input, 
+		span.letters, span.usedLetters, 
+		.updatedText {
+			font-size:36px;
+		}
+	}
+	footer p {
+		font-size:10px;
+		letter-spacing:0;
+	}
+}
+
+/* iPhone 6, iPhone 6s, iPhone 7 */ 
+/* Landscape & Portrait */
+@media only screen 
+and (min-width:375px) 
+and (max-width:667px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+	.main-content{
+		// .originalText, .wordInput input {
+		// 	padding:0;
+		// }
+
+		.originalText, .wordInput input, 
+		span.letters, span.usedLetters, 
+		.updatedText {
+			letter-spacing:0;
+		}
+	}
+}
+
+/* iPhone 6, iPhone 6s, iPhone 7 */ 
+/* Landscape Only Styles */
+@media only screen 
+and (min-width:375px) 
+and (max-width:667px) 
+and (-webkit-min-device-pixel-ratio:2) 
+and (orientation:landscape) {
+	.main {
+		padding:30px 0;
+		.header	{	
+			padding:15px 0;
+			h3{font-size:28px;}
+		}
+	}
+	.main-content{
+		padding:20px 0 10px;
+
+		.originalText, .wordInput input, 
+		span.letters, span.usedLetters, 
+		.updatedText {
+			font-size:55px;
+		}
+	}
+	
+}
+
+/* iPhone 6, iPhone 6s, iPhone 7 */ 
+/* Portrait Only Styles */
+@media only screen 
+and (min-width:375px) 
+and (max-width:667px) 
+and (-webkit-min-device-pixel-ratio: 2) 
+and (orientation:portrait) {
+	.main {
+		padding:80px 0 20px;
+		
+		.header	{	
+			padding:10px 0;
+			h3{font-size:28px;}
+		}
+	}
+
+	.main-content{
+		padding:30px 0;
+
+		.originalText, .wordInput input, 
+		span.letters, span.usedLetters, 
+		.updatedText {
+			font-size:44px;
+		}
+	}
+
+	footer p {
+		// font-size:11.5px;
+		letter-spacing:0;
+	}
+}
+
+
+/* iPhone 6+, iPhone 6s+, iPhone 7+ */ 
+/* Portrait & Landscape Styles */
+@media only screen 
+and (min-width:414px) 
+and (max-width:736px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+	//Code Here
+}
+
+/* iPhone 6+, iPhone 6s+, iPhone 7+ */ 
+/* Landscape Only Styles */
+@media only screen 
+and (min-width:414px) 
+and (max-width:736px) 
+and (-webkit-min-device-pixel-ratio:2) 
+and (orientation:landscape) {
+	// .main {
+	// 	padding:30px 0;
+		
+	// 	.header	{	
+	// 		padding:5px 0;
+	// 	}
+	// }
+	// .main-content{
+	// 	padding:35px 0;
+
+	// 	.originalText, .wordInput input, 
+	// 	span.letters, span.usedLetters, 
+	// 	.updatedText {
+	// 		font-size:65px;
+	// 	}
+	// }
+	footer p {
+		letter-spacing:3.5px;
+	}
+}
+
+/* iPhone 6+, iPhone 6s+, iPhone 7+ */ 
+/* Portrait Only Styles */
+@media only screen 
+and (min-width:414px) 
+and (max-width:736px) 
+and (-webkit-min-device-pixel-ratio:2)
+and (orientation:portrait) {
+//Code Here
+
+}
+
+/* iPad Mini Landscape */
+/* Landscape Only Styles */
+@media only screen 
+and (min-device-width:768px) 
+and (max-device-width:1024px) 
+and (-webkit-min-device-pixel-ratio:1)
+and (orientation:landscape)  {
+	//Code Here
+}
+
+/* iPad Mini Portrait */
+/* Portrait Only Styles */
+@media only screen 
+and (min-device-width:768px) 
+and (max-device-width:1024px) 
+and (-webkit-min-device-pixel-ratio:1)
+and (orientation:portrait)  {
+	//Code Here
+}
+
+@media all and (max-width: 959px) {
+	//Code Here
+}
+
+
+
+@media all and (min-width: 960px) {
+
+ // Establish all items within a row as being flexbox-enabled
+  .row { display: flex; }
+
+  // Any class that begins with "col-" gets 20px of right margin
+  [class*="col-"] { margin-right: 20px; }
+
+  // The last column in a row gets the right margin removed
+  [class*="col-"]:last-child { margin-right: 0; }
+
+  // Create 12 columns where $i is the index number in the loop.
+  // This will create 12 classes: .col-1, .col-2, .col-3, etc...
+  // These 12 classes will have the flex property of the index number in the loop.
+  @for $i from 1 through 12 {
+      .col-#{$i} { flex: $i; }
+  }
+}
